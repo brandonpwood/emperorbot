@@ -1,5 +1,5 @@
 username = "GLORYTOTHEEMPERORBOT"
-password = "Heroiwood116"
+password = "Reroiwood116"
 client_secret = "uMfHDoWepCheigzlDqlWLd5xm0c"
 client_id = "ZmrRv4oFJEPxmQ"
 user_agent = "GLORY BOT v0.1"

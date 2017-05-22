@@ -13,11 +13,10 @@ def login_bot():
 
 def run_bot(r):
     counter = 0
-    for post in r.subreddit('40k').new(limit = 25):
-        for comment in post.comments:
-            if "emperor" in and "mankind" comment.body:
-                comment.reply("GLORY TO OUR EMPEROR, THE HOLY SAVIOR OF MANKIND")
-                comment.upvote()
+    for comment in r.subreddit('40k').comments(limit = 250):
+        if ("emperor" in comment.body or "emperor's") and ("mankind" in comment.body or "chosen" in comment.body or "lord" in comment.body):
+            comment.reply("GLORY TO OUR EMPEROR, THE HOLY SAVIOR OF MANKIND")
+            comment.upvote()
 
 r = login_bot()
 run_bot(r)
