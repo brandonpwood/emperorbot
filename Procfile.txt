@@ -1,1 +1,1 @@
-worker: guincorn bot.py
+clock: python clock.py

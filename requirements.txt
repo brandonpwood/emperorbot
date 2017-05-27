@@ -1,2 +1,2 @@
 praw==4.5.1
-gunicorn==19.7.1
+apscheduler==3.3.1
