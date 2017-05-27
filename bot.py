@@ -14,23 +14,6 @@ def login_bot():
             )
     return r
 
-def or_check(comment, rules):
-    '''
-    Returns True if comments contains one of the strings in rules, else False.
-    '''
-    for i in rules:
-        if i in comment:
-            return True
-    return False
-def and_check(comment, rules):
-    '''
-    Returns true if comment contains all parameters in rules, False otherwise.
-    '''
-    for i in rules:
-        if i not in comment:
-            return False
-    return True
-
 def run_bot(r):
     '''
     Main bot protocol, takes in reddit connection for praw as input
@@ -40,7 +23,12 @@ def run_bot(r):
         if ("emperor" in comment.body or "emperor's") and ("mankind" in comment.body or "chosen" in comment.body or "lord" in comment.body):
             comment.reply("GLORY TO OUR EMPEROR, THE HOLY SAVIOR OF MANKIND")
             comment.upvote()
+            print('Found one')
     for comment in r.subreddit('40k').comments(limit = 500):
         if ("emperor" in comment.body or "emperor's") and ("mankind" in comment.body or "chosen" in comment.body or "lord" in comment.body):
             comment.reply("GLORY TO OUR EMPEROR, THE HOLY SAVIOR OF MANKIND")
             comment.upvote()
+            print('Found one')
+
+r = login_bot()
+run_bot(r)
