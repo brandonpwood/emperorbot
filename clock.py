@@ -4,6 +4,4 @@ sched = bs()
 
 @sched.scheduled_job('interval', minutes = 3)
 def run():
-    print("wow")
     bot()
-run()
