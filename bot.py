@@ -14,21 +14,27 @@ def login_bot():
             )
     return r
 
+
 def run_bot(r):
     '''
     Main bot protocol, takes in reddit connection for praw as input
     '''
-    counter = 0
-    for comment in r.subreddit('Warhammer40k').comments(limit = 500):
-        if ("emperor" in comment.body or "emperor's") and ("mankind" in comment.body or "chosen" in comment.body or "lord" in comment.body):
-            comment.reply("GLORY TO OUR EMPEROR, THE HOLY SAVIOR OF MANKIND")
-            comment.upvote()
-            print('Found one')
-    for comment in r.subreddit('40k').comments(limit = 500):
-        if ("emperor" in comment.body or "emperor's") and ("mankind" in comment.body or "chosen" in comment.body or "lord" in comment.body):
-            comment.reply("GLORY TO OUR EMPEROR, THE HOLY SAVIOR OF MANKIND")
-            comment.upvote()
-            print('Found one')
+    for comment in r.subreddit('40k').comments(limit = 200):
+        if "emperor" in comment.body and (comment.author.name != "GLORYTOTHEEMPERORBOT"):
+            comment.refresh()
+            for rep in comment.replies:
+                check = True
+                if "GLORY TO THE EMPEROR, THE HOLY SAVIOR OF MANKIND" in rep.body:
+                    check = False
+                    break
+            if check:
+                comment.reply("GLORY TO THE EMPEROR, THE HOLY SAVIOR OF MANKIND")
+                comment.upvote()
+                print("New Comment")
+                print('-------------------')
+            else:
+                print("Already seen this one")
+                print('-------------------')
 
 r = login_bot()
 run_bot(r)
