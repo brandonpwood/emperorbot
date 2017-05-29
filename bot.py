@@ -35,6 +35,3 @@ def run_bot(r):
             else:
                 print("Already seen this one")
                 print('-------------------')
-
-r = login_bot()
-run_bot(r)

@@ -3,5 +3,8 @@ import bot
 sched = bs()
 
 @sched.scheduled_job('interval', minutes = 3)
-def run():
-    bot()
+def timed_job():
+    r = bot.login_bot()
+    bot.run_bot(r)
+    print("Updating...")
+sched.start()
