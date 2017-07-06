@@ -19,7 +19,7 @@ def run_bot(r):
     '''
     Main bot protocol, takes in reddit connection for praw as input
     '''
-    for comment in r.subreddit('40k').comments(limit = 200):
+    for comment in r.subreddit('Warhammer40k').comments(limit = 400):
         if "emperor" in comment.body and (comment.author.name != "GLORYTOTHEEMPERORBOT"):
             comment.refresh()
             for rep in comment.replies:
@@ -35,3 +35,4 @@ def run_bot(r):
             else:
                 print("Already seen this one")
                 print('-------------------')
+run_bot(login_bot())
