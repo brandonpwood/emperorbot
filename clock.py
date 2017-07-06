@@ -1,6 +1,8 @@
 from apscheduler.schedulers.blocking import BlockingScheduler as bs
 import logging
 
+import bot
+
 log = logging.getLogger('apscheduler.executors.default')
 log.setLevel(logging.INFO)  # DEBUG
 
